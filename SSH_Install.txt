@@ -1,0 +1,36 @@
+arch Linux:
+
+sudo pacman -S openssh
+sudo systemctl start sshd
+sudo systemctl enable sshd
+sudo systemctl status sshd
+
+sudo ufw allow ssh
+
+sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+
+
+Kali :
+sudo apt update
+sudo apt install openssh-server
+sudo systemctl start ssh
+sudo systemctl enable ssh
+sudo systemctl status ssh
+sudo systemctl restart ssh
+
+Fedora:
+sudo dnf install openssh-server
+sudo systemctl enable sshd
+sudo systemctl start sshd
+sudo systemctl status sshd
+
+sudo firewall-cmd --permanent --add-service=ssh
+sudo firewall-cmd --reload
+
+openSUSE:
+sudo zypper install openssh
+sudo systemctl start sshd
+sudo systemctl enable sshd
+sudo systemctl status sshd
+sudo firewall-cmd --permanent --add-service=ssh
+sudo firewall-cmd --reload
